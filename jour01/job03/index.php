@@ -1,6 +1,6 @@
 <?php
-$boolean = true;
-$integer = 42;
+$bool = true;
+$int = 42;
 $float = 3.14;
 $string = "Hello, World!";
 
@@ -24,6 +24,7 @@ $string = "Hello, World!";
             padding: 10px;
             text-align: center;
             border: 1px solid black;
+            font-family: Arial, Helvetica, sans-serif;
         }
         th {
             background-color: #f2f2f2;
