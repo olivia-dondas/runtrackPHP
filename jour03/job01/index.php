@@ -1,33 +1,16 @@
 <?php
 
-// Déclarer un tableau avec les nombres
-$nombres = [200, 204, 173, 98, 171, 404, 459];
+    /* Créez un tableau contenant les nombres 200, 204, 173, 98, 171, 404, 459.
+Parcourez ce tableau et affichez “X est pair<br />” ou “X est impair<br/>”, 
+X prenant tour à tour chacune des valeurs comprises dans ce tableau. */ 
 
-// Parcourir le tableau pour déterminer si chaque nombre est pair ou impair
-foreach ($nombres as $nombre) {
-    if ($nombre % 2 == 0) {
-        // Nombre pair
-        echo "$nombre est pair<br />";
-    } else {
-        // Nombre impair
-        echo "$nombre est impair<br />";
+
+
+$nombres =  array('200', '204', '173', '98', '171', '404', '459');
+foreach($nombres as $nombre) {
+    if($nombre %2 == 0) {
+        echo "$nombre est pair <br>";
+    }
+    else {echo "$nombre est impair <br>";
     }
 }
-?>
-
-<?php
-$nombres = array(
-    "numbers" => array(200, 204, 173, 98, 171, 404, 459)
-);
-
-foreach ($nombres['numbers'] as $value) {
-    if ($value % 2 == 0) {
-        // Nombre pair
-        echo "$value est pair<br />";
-    } else {
-        // Nombre impair
-        echo "$value est impair<br />";
-    }
-}
-?>
-

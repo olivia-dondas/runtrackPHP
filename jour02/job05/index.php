@@ -1,15 +1,22 @@
 <?php
+
+
 function estPremier($nombre) {
-    if ($nombre < 2) return false;
-    for ($i = 2; $i <= sqrt($nombre); $i++) {
-        if ($nombre % $i == 0) return false;
+    if ($nombre <= 1) {
+        return false;
     }
-    return true;
+
+    for ($i = 2; $i <= sqrt($nombre); $i ++) {
+        if ($nombre % $i==0) {
+            return false;
+        }
 }
 
+return true;
+}
 for ($i = 2; $i <= 1000; $i++) {
     if (estPremier($i)) {
-        echo "$i<br>";
-    }
+        echo "$i <br>";
+    }   
+
 }
-?>

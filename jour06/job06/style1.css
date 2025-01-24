@@ -1,0 +1,22 @@
+body {
+  background-color: lightblue;
+  font-family: Arial, sans-serif;
+  color: darkblue;
+}
+
+h1 {
+  text-align: center;
+  color: darkblue;
+}
+
+form {
+  margin-top: 50px;
+  text-align: center;
+}
+
+select,
+input[type="submit"] {
+  padding: 10px;
+  font-size: 1.2em;
+  margin-top: 10px;
+}

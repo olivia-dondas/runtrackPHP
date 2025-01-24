@@ -3,47 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire de connexion</title>
+    <title>Compteur d'arguments GET</title>
 </head>
 <body>
-    <!-- Formulaire de connexion -->
-    <form method="POST" action="">
-        <label for="username">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="username" required>
-        <br><br>
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="password" required>
-        <br><br>
-        <button type="submit">Se connecter</button>
+    <!-- Formulaire avec la méthode GET -->
+    <form method="GET" action="">
+        <label for="arg1">Argument 1 :</label>
+        <input type="text" id="arg1" name="arg1"><br><br>
+
+        <label for="arg2">Argument 2 :</label>
+        <input type="text" id="arg2" name="arg2"><br><br>
+
+        <label for="arg3">Argument 3 :</label>
+        <input type="text" id="arg3" name="arg3"><br><br>
+
+        <button type="submit">Envoyer</button>
     </form>
 
     <?php
-    // Vérification après soumission du formulaire
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+    // Vérifie si des arguments ont été passés via $_GET
+    if (!empty($_GET)) {
+        // Compte le nombre d'arguments dans $_GET
+        $nombre_arguments = count($_GET);
 
-        if ($username === "John" && $password === "Rambo") {
-            echo "<p>c’est pas ma guerre</p>";
-        } else {
-            echo "<p>votre pire cauchemar</p>";
+        // Affiche le résultat
+        echo "<p>Le nombre d'arguments GET est : $nombre_arguments</p>";
+
+        // Affiche chaque argument et sa valeur pour plus de clarté
+        echo "<ul>";
+        foreach ($_GET as $cle => $valeur) {
+            echo "<li><strong>$cle</strong> : $valeur</li>";
         }
+        echo "</ul>";
+    } else {
+        // Message affiché lorsque aucun argument n'est passé
+        echo "<p>Aucun argument n'a été passé via GET.</p>";
     }
     ?>
 </body>
 </html>
 
-<br
+<!--
 Explications :
-	1.	Type de méthode : POST
-	•	Le type POST est utilisé ici pour éviter que les données ne soient visibles dans l’URL, ce qui améliore la confidentialité (contrairement à GET).
-	•	En plus, POST permet de gérer des données volumineuses (comme des mots de passe ou des informations sensibles) sans limitation de taille stricte.
-	2.	Structure HTML :
-	•	Le formulaire comprend deux champs : username pour le nom d’utilisateur et password pour le mot de passe.
-	•	Le bouton de soumission envoie les données au serveur pour traitement.
-	3.	Traitement des données en PHP :
-	•	La condition if ($_SERVER['REQUEST_METHOD'] === 'POST') garantit que le traitement s’effectue uniquement lorsque le formulaire est soumis.
-	•	Les données envoyées via POST sont récupérées avec $_POST['champ'].
-	•	Le script vérifie si les valeurs saisies correspondent à John et Rambo :
-	•	Si oui : il affiche “c’est pas ma guerre”.
-	•	Sinon : il affiche “votre pire cauchemar”.
+	1.	Formulaire HTML :
+	•	Trois champs (arg1, arg2, arg3) permettent de tester l’envoi de plusieurs arguments.
+	•	La méthode GET est utilisée pour envoyer les données via l’URL.
+	2.	Traitement PHP :
+	•	La fonction count($_GET) est utilisée pour compter le nombre d’arguments reçus via $_GET.
+	•	La boucle foreach affiche chaque clé (nom du champ) et sa valeur.
+	•	Si aucun argument n’est passé, un message d’absence d’arguments est affiché.
